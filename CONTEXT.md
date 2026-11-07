@@ -263,7 +263,8 @@ Prompt 8+
 # 14. Repository
 
 GitHub:
-https://github.com/MuhammedRifaz/Coastal-Innovation-Hackathon-Sahyadri-PS1-Team-Algarythm
+https://github.com/HAFIZ-HAASHIM/ResQOS
+(Original Hackathon Repo: https://github.com/MuhammedRifaz/Coastal-Innovation-Hackathon-Sahyadri-PS1-Team-Algarythm)
 
 Branch:
 main

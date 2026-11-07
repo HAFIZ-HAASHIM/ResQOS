@@ -19,6 +19,7 @@ https://github.com/user-attachments/assets/26b45ae4-b969-4b87-98f0-70339c4653bf
 
 
   <p><em>ResQOS in Action: Real-time decision support, risk-aware routing, impact analysis, and fleet dispatch simulation.</em></p>
+  <p><a href="./Video/Recording%202026-07-12%20122056.mp4">📹 <strong>Watch / Download Demo Video</strong></a></p>
 </div>
 
 ---
@@ -82,22 +83,22 @@ graph TD
 The codebase strictly separates algorithmic logic from API frameworks to ensure determinism and unit-testability.
 
 ### 🧠 Core Algorithmic Logic (Pure Python, Zero External Dependencies)
-* [graph_service.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/core/graph_service.py): Manages loading, caching, enrichment, snapping coordinates to nodes, in-memory updates, and delta-snapshot generation.
-* [routing.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/core/routing.py): Implements composite A* routing with vehicle-specific depth tolerances and returns avoided flooded edges.
-* [fleet.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/core/fleet.py): Calculates optimal vehicles, manages mission lifecycles, and computes backup routes.
-* [impact.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/core/impact.py): Calculates connected components on the passable subgraph, computes network resilience indices, and runs what-if analysis.
-* [explain.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/core/explain.py): Translates complex graph data and routing deltas into plain English reasons.
-* [scenario.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/core/scenario.py): Coordinates the timed scenario script, pushing state updates downstream.
+* [graph_service.py](backend/app/core/graph_service.py): Manages loading, caching, enrichment, snapping coordinates to nodes, in-memory updates, and delta-snapshot generation.
+* [routing.py](backend/app/core/routing.py): Implements composite A* routing with vehicle-specific depth tolerances and returns avoided flooded edges.
+* [fleet.py](backend/app/core/fleet.py): Calculates optimal vehicles, manages mission lifecycles, and computes backup routes.
+* [impact.py](backend/app/core/impact.py): Calculates connected components on the passable subgraph, computes network resilience indices, and runs what-if analysis.
+* [explain.py](backend/app/core/explain.py): Translates complex graph data and routing deltas into plain English reasons.
+* [scenario.py](backend/app/core/scenario.py): Coordinates the timed scenario script, pushing state updates downstream.
 
 ### 🔌 Adapters, WebSockets & App Entrypoints
-* [main.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/main.py): Sets up FastAPI application lifespan, registers event listeners, and mounts WebSocket endpoint.
-* [routes.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/api/routes.py): Adapts HTTP commands to underlying core graph mutators.
-* [models.py](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/backend/app/models.py): Defines the unified Pydantic schemas (mirrored in frontend types).
+* [main.py](backend/app/main.py): Sets up FastAPI application lifespan, registers event listeners, and mounts WebSocket endpoint.
+* [routes.py](backend/app/api/routes.py): Adapts HTTP commands to underlying core graph mutators.
+* [models.py](backend/app/models.py): Defines the unified Pydantic schemas (mirrored in frontend types).
 
 ### 🖥️ Responsive React Frontend
-* [useAppStore.ts](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/frontend/src/store/useAppStore.ts): Global Zustand store which receives WebSockets updates and drives reactive UI.
-* [MapView.tsx](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/frontend/src/map/MapView.tsx): Renders custom dark MapLibre map, road overlays, overlays for safe assembly zones, active routes, and incidents.
-* [DecisionLog.tsx](file:///c:/Users/ASUS/OneDrive/Pictures/Music/New%20folder/Sahyadri/frontend/src/components/DecisionLog.tsx): The ticker displaying structured decision explanations in real-time.
+* [useAppStore.ts](frontend/src/store/useAppStore.ts): Global Zustand store which receives WebSockets updates and drives reactive UI.
+* [MapView.tsx](frontend/src/map/MapView.tsx): Renders custom dark MapLibre map, road overlays, overlays for safe assembly zones, active routes, and incidents.
+* [DecisionLog.tsx](frontend/src/components/DecisionLog.tsx): The ticker displaying structured decision explanations in real-time.
 
 ---
 
